@@ -30,7 +30,9 @@ export default function SearchOperation() {
     return ["all", ...uniqueType];
   }
 
-  function onChange(name, value) {
+  function onChange(e) {
+    const { name, value } = e.target;
+
     setQuery((curState) => ({ ...curState, [name]: value }));
   }
 

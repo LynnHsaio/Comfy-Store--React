@@ -1,12 +1,7 @@
 import useInput from "../hooks/useInput";
 
 export default function CheckBox({ name, label, initialVal, value, onChange }) {
-  const { currentVal, handleChange } = useInput(
-    initialVal,
-    value,
-    onChange,
-    name
-  );
+  const { currentVal, handleChange } = useInput(initialVal, value, onChange);
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useInput(initialVal, value, onChange, name) {
+export default function useInput(initialVal, value, onChange) {
   const [input, setInput] = useState(initialVal);
 
   const isControlled = value !== undefined;
@@ -8,7 +8,7 @@ export default function useInput(initialVal, value, onChange, name) {
 
   function handleChange(e) {
     if (isControlled) {
-      onChange?.(name, e.target.value);
+      onChange?.(e);
     } else {
       setInput(e.target.value);
     }

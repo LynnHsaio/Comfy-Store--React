@@ -9,12 +9,7 @@ export default function Range({
   value,
   onChange,
 }) {
-  const { currentVal, handleChange } = useInput(
-    initialVal,
-    value,
-    onChange,
-    name
-  );
+  const { currentVal, handleChange } = useInput(initialVal, value, onChange);
 
   return (
     <div>
