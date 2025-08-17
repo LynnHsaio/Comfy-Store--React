@@ -1,16 +1,21 @@
 import useInput from "../hooks/useInput";
 
-export default function Search({ id, label, addQuery, initialVal }) {
-  const { input, handleChange } = useInput(initialVal || "", addQuery, id);
+export default function Search({ name, label, initialVal, value, onChange }) {
+  const { currentVal, handleChange } = useInput(
+    initialVal,
+    value,
+    onChange,
+    name
+  );
 
   return (
     <div>
-      <label htmlFor="search">{label}</label>
+      <label htmlFor={name}>{label}</label>
       <input
         type="text"
-        id="search"
-        name={id}
-        value={input}
+        id={name}
+        name={name}
+        value={currentVal}
         onChange={handleChange}
       />
     </div>

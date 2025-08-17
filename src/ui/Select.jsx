@@ -1,17 +1,25 @@
 import useInput from "../hooks/useInput";
 
-export default function Select({ id, label, options, addQuery, initialVal }) {
-  const { input, handleChange } = useInput(
-    initialVal || options[0],
-    addQuery,
-    id
+export default function Select({
+  name,
+  label,
+  options,
+  initialVal,
+  value,
+  onChange,
+}) {
+  const { currentVal, handleChange } = useInput(
+    initialVal,
+    value,
+    onChange,
+    name
   );
 
   return (
     <div>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={name}>{label}</label>
 
-      <select name={id} id={id} value={input} onChange={handleChange}>
+      <select name={name} id={name} value={currentVal} onChange={handleChange}>
         {options.map((item) => (
           <option value={item} key={item}>
             {item}

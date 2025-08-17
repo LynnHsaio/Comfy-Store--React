@@ -1,16 +1,21 @@
 import useInput from "../hooks/useInput";
 
-export default function CheckBox({ id, label, addQuery, initialVal }) {
-  const { input, handleChange } = useInput(initialVal || false, addQuery, id);
+export default function CheckBox({ name, label, initialVal, value, onChange }) {
+  const { currentVal, handleChange } = useInput(
+    initialVal,
+    value,
+    onChange,
+    name
+  );
 
   return (
     <div>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={name}>{label}</label>
       <input
         type="checkbox"
-        id={id}
-        name={id}
-        checked={input}
+        id={name}
+        name={name}
+        checked={currentVal}
         onChange={handleChange}
       />
     </div>

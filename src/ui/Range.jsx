@@ -1,27 +1,33 @@
 import useInput from "../hooks/useInput";
 
 export default function Range({
-  id,
+  name,
   label,
   max,
   min = "0",
-  addQuery,
   initialVal,
+  value,
+  onChange,
 }) {
-  const { input, handleChange } = useInput(initialVal || max, addQuery, id);
+  const { currentVal, handleChange } = useInput(
+    initialVal,
+    value,
+    onChange,
+    name
+  );
 
   return (
     <div>
-      <label htmlFor={id}>{label}</label>
-      <span>${input}</span>
+      <label htmlFor={name}>{label}</label>
+      <span>${currentVal}</span>
       <input
         type="range"
-        id={id}
-        name={id}
+        id={name}
+        name={name}
         min={min}
         max={max}
         step="100"
-        value={input}
+        value={currentVal}
         onChange={handleChange}
       />
       <span>{min}</span>

@@ -6,11 +6,22 @@ import Search from "../../ui/Search";
 import Range from "../../ui/Range";
 import CheckBox from "../../ui/CheckBox";
 
+const defaultQuery = {
+  search: "",
+  category: "all",
+  company: "all",
+  order: "a-z",
+  price: "100000",
+  shipping: false,
+};
+
 export default function SearchOperation() {
   const { isLoading, data } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
+
   const allQuery = Object.fromEntries(searchParams.entries());
-  const [query, setQuery] = useState(allQuery || {});
+  const initialQuery = Object.keys(allQuery).length ? allQuery : defaultQuery;
+  const [query, setQuery] = useState(initialQuery);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -19,11 +30,8 @@ export default function SearchOperation() {
     return ["all", ...uniqueType];
   }
 
-  function addQuery(prop, value) {
-    const newQuery = { ...query };
-    newQuery[prop] = value;
-
-    setQuery(newQuery);
+  function onChange(name, value) {
+    setQuery((curState) => ({ ...curState, [name]: value }));
   }
 
   function handleSearch(e) {
@@ -34,55 +42,55 @@ export default function SearchOperation() {
   function handleReset(e) {
     e.preventDefault();
     setSearchParams({});
-    setQuery({});
+    setQuery(defaultQuery);
   }
 
   return (
     <form>
       <Search
-        id="search"
+        name="search"
         label="Search Product"
-        initialVal={query.search}
-        addQuery={addQuery}
+        value={query.search}
+        onChange={onChange}
       />
 
       <Select
-        id="category"
+        name="category"
         label="Select Category"
         options={getOptions("category")}
-        addQuery={addQuery}
-        initialVal={query.category}
+        value={query.category}
+        onChange={onChange}
       />
 
       <Select
-        id="company"
+        name="company"
         label="Select Company"
         options={getOptions("company")}
-        addQuery={addQuery}
-        initialVal={query.company}
+        value={query.company}
+        onChange={onChange}
       />
 
       <Select
-        id="order"
+        name="order"
         label="Sort By"
         options={["a-z", "z-a", "high", "low"]}
-        addQuery={addQuery}
-        initialVal={query.order}
+        value={query.order}
+        onChange={onChange}
       />
 
       <Range
-        id="price"
+        name="price"
         label="Select Price"
         max="100000"
-        addQuery={addQuery}
-        initialVal={query.price}
+        value={query.price}
+        onChange={onChange}
       />
 
       <CheckBox
-        id="shipping"
+        name="shipping"
         label="Free Shipping"
-        addQuery={addQuery}
-        initialVal={Boolean(query.shipping)}
+        value={Boolean(query.shipping)}
+        onChange={onChange}
       />
 
       <button onClick={handleSearch}>Search</button>
