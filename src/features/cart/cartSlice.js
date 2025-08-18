@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cart: [],
-  isLoading: false,
 };
 
 const cartSlice = createSlice({
@@ -10,8 +9,26 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     add(state, action) {
-      state.cart = [...state.cart, action.payload];
-      state.isLoading = false;
+      const { id, color, amount } = action.payload;
+
+      const isSameColorItem = state.cart.find(
+        (item) => item.id === id && item.color === color
+      );
+
+      if (isSameColorItem) {
+        state.cart = state.cart.map((item) => {
+          if (item.id === id && item.color === color) {
+            return {
+              ...action.payload,
+              amount: Number(item.amount) + Number(amount),
+            };
+          } else {
+            return item;
+          }
+        });
+      } else {
+        state.cart = [...state.cart, action.payload];
+      }
     },
     update(state, action) {
       state.cart = state.cart.map((item) =>
