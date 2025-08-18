@@ -23,8 +23,6 @@ export default function SearchOperation() {
   const initialQuery = Object.keys(allQuery).length ? allQuery : defaultQuery;
   const [query, setQuery] = useState(initialQuery);
 
-  if (isLoading) return <div>Loading...</div>;
-
   function getOptions(type) {
     const uniqueType = new Set(data.map((item) => item.attributes[type]));
     return ["all", ...uniqueType];
@@ -46,6 +44,8 @@ export default function SearchOperation() {
     setSearchParams({});
     setQuery(defaultQuery);
   }
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <form>

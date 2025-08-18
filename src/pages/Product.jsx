@@ -1,22 +1,44 @@
-import { useState } from "react";
-import useProduct from "../features/Products/useProduct";
+import { useEffect, useState } from "react";
+import useProduct from "../features/products/useProduct";
 import Select from "../ui/Select";
 import ColorRadio from "../ui/ColorRadio";
+import { useDispatch } from "react-redux";
+import { add } from "../features/cart/cartSlice";
+
+const amountOptions = Array.from({ length: 20 }, (_, i) => i + 1);
 
 export default function Product() {
   const { isLoading, data } = useProduct();
-  const [form, setForm] = useState({ color: "", amount: "1" });
-
-  if (isLoading) return <div>Loading</div>;
-
-  const { image, title, company, price, description, colors } = data.attributes;
-  const amountOptions = Array.from({ length: 20 }, (_, i) => i + 1);
+  const [form, setForm] = useState({
+    color: "",
+    amount: "",
+  });
+  const dispatch = useDispatch();
 
   function handleChange(e) {
     const { name, value } = e.target;
 
     setForm((curState) => ({ ...curState, [name]: value }));
   }
+
+  function handleAdd(e) {
+    e.preventDefault();
+    dispatch(add({ ...data, ...form }));
+  }
+
+  useEffect(() => {
+    if (data?.attributes?.colors?.length) {
+      setForm((prev) => ({
+        ...prev,
+        color: data.attributes.colors[0],
+        amount: amountOptions[0],
+      }));
+    }
+  }, [data]);
+
+  if (isLoading) return <div>Loading</div>;
+
+  const { image, title, company, price, description, colors } = data.attributes;
 
   return (
     <div>
@@ -43,7 +65,7 @@ export default function Product() {
           onChange={handleChange}
         />
 
-        <button>Add To Bag</button>
+        <button onClick={handleAdd}>Add To Bag</button>
       </form>
     </div>
   );
