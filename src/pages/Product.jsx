@@ -4,8 +4,7 @@ import Select from "../ui/Select";
 import ColorRadio from "../ui/ColorRadio";
 import { useDispatch } from "react-redux";
 import { add } from "../features/cart/cartSlice";
-
-const amountOptions = Array.from({ length: 20 }, (_, i) => i + 1);
+import { amountOptions } from "../utils/constant";
 
 export default function Product() {
   const { isLoading, data } = useProduct();

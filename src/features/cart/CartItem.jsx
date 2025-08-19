@@ -2,8 +2,7 @@ import { useState } from "react";
 import Select from "../../ui/Select";
 import { useDispatch } from "react-redux";
 import { remove, update } from "./cartSlice";
-
-const amountOptions = Array.from({ length: 20 }, (_, i) => i + 1);
+import { amountOptions } from "../../utils/constant";
 
 export default function CartItem({ item }) {
   const {
