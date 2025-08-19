@@ -4,7 +4,7 @@ import useProducts from "./useProducts";
 import { useSearchParams } from "react-router-dom";
 import Search from "../../ui/Search";
 import Range from "../../ui/Range";
-import CheckBox from "../../ui/CheckBox";
+// import CheckBox from "../../ui/CheckBox";
 
 const defaultQuery = {
   search: "",
@@ -12,7 +12,7 @@ const defaultQuery = {
   company: "all",
   order: "a-z",
   price: "100000",
-  shipping: false,
+  // shipping: false,
 };
 
 export default function SearchOperation() {
@@ -88,12 +88,12 @@ export default function SearchOperation() {
         onChange={onChange}
       />
 
-      <CheckBox
+      {/* <CheckBox
         name="shipping"
         label="Free Shipping"
         value={Boolean(query.shipping)}
         onChange={onChange}
-      />
+      /> */}
 
       <button onClick={handleSearch}>Search</button>
       <button onClick={handleReset}>Reset</button>

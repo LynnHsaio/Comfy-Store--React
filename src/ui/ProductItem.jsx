@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { formatCurrency } from "../utils/helpers";
 
 export default function ProductItem({ item }) {
   const { image, title, price } = item.attributes;
@@ -12,7 +13,7 @@ export default function ProductItem({ item }) {
     <div onClick={handleNavigate}>
       <img src={image} alt={title} style={{ width: "100%" }} />
       <h3>{title}</h3>
-      <p>{price}</p>
+      <p>{formatCurrency(price)}</p>
     </div>
   );
 }

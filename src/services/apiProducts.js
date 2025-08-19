@@ -33,7 +33,7 @@ export async function getFilteredProducts(search = "") {
     throw new Error("取得篩選產品錯誤");
   }
 
-  return res.data.data;
+  return res.data;
 }
 
 export async function getSingleProduct(id) {
