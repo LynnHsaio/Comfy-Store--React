@@ -1,5 +1,5 @@
-import ProductsTable from "../features/Products/ProductsTable";
-import SearchOperation from "../features/Products/SearchOperation";
+import ProductsTable from "../features/products/ProductsTable";
+import SearchOperation from "../features/products/SearchOperation";
 
 export default function Products() {
   return (
