@@ -5,10 +5,10 @@ import ColorRadio from "../../ui/ColorRadio";
 import { add } from "../cart/cartSlice";
 import { amountOptions } from "../../utils/constant";
 import { formatCurrency } from "../../utils/helpers";
-import useProducts from "./useProducts";
+import useProduct from "./useProduct";
 
 export default function ProductDetail() {
-  const { isLoading, data } = useProducts();
+  const { isLoading, data } = useProduct();
   const [form, setForm] = useState({
     color: "",
     amount: "",
