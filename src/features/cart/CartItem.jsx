@@ -12,11 +12,9 @@ export default function CartItem({ item }) {
     amount,
   } = item;
 
-  const [itemAmount, setItemAmount] = useState(amount);
   const dispatch = useDispatch();
 
   function handleChange(e) {
-    setItemAmount(e.target.value);
     dispatch(update({ ...item, amount: e.target.value }));
   }
 
@@ -34,7 +32,7 @@ export default function CartItem({ item }) {
         name="amount"
         label="Amount"
         options={amountOptions}
-        value={itemAmount}
+        value={amount}
         onChange={handleChange}
       />
 
