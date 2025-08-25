@@ -8,6 +8,7 @@ import Cart from "./pages/Cart";
 import CheckOut from "./pages/CheckOut";
 import AppLayout from "./ui/AppLayout";
 import Product from "./pages/Product";
+import PageNotFound from "./pages/PageNotFound";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,12 +25,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<Product />} />
-            <Route path="/Cart" element={<Cart />} />
-            <Route path="/checkout" element={<CheckOut />} />
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/:id" element={<Product />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="checkout" element={<CheckOut />} />
+            <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
