@@ -1,31 +1,14 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
 
 export default function AppLayout() {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/products">Products</NavLink>
-          </li>
-          <li>
-            <NavLink to="/cart">Cart</NavLink>
-          </li>
-          <li>
-            <NavLink to="/checkout">Checkout</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Navbar />
 
-      <section>
+      <main>
         <Outlet />
-      </section>
+      </main>
     </div>
   );
 }
