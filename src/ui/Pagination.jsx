@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 export default function Pagination({ pagination }) {
   const { pageCount, page } = pagination;
   const [searchParams, setSearchParams] = useSearchParams();
+  const pages = Array.from({ length: pageCount }, (_, i) => i + 1);
 
   function handlePage(page) {
     if (page < 1 || page > pageCount) return;
@@ -24,15 +25,15 @@ export default function Pagination({ pagination }) {
       </button>
 
       <span>
-        {Array.from({ length: pageCount }, (_, i) => (
+        {pages.map((pageNum) => (
           <button
-            key={i + 1}
+            key={pageNum}
             onClick={() => {
-              handlePage(i + 1);
+              handlePage(pageNum);
             }}
-            style={{ backgroundColor: i + 1 === page ? "balck" : "initial" }}
+            style={{ backgroundColor: pageNum === page ? "balck" : "initial" }}
           >
-            {i + 1}
+            {pageNum}
           </button>
         ))}
       </span>
