@@ -1,11 +1,14 @@
-import ProductItem from "../../ui/ProductItem";
+import ProductItem from "./ProductItem";
+import styles from "./ProductsList.module.scss";
 
-export default function ProductsList({ list }) {
+export default function ProductsList({ list, style = "grid" }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
+    <ul className={`${styles.ProductsList} ${styles[style]}`}>
       {list.map((item) => (
-        <ProductItem item={item} key={item.id} />
+        <li key={item.id}>
+          <ProductItem item={item} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

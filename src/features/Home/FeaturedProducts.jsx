@@ -1,5 +1,6 @@
-import ProductItem from "../../ui/ProductItem";
+import ProductsList from "../products/ProductsList";
 import useFeaturedProducts from "./useFeaturedProducts";
+import SectionTitle from "../../ui/SectionTitle";
 
 export default function FeaturedProducts() {
   const { isLoading, data } = useFeaturedProducts();
@@ -7,10 +8,9 @@ export default function FeaturedProducts() {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
-      {data.map((item) => (
-        <ProductItem key={item.id} item={item} />
-      ))}
+    <div>
+      <SectionTitle title="Featured Products" />
+      <ProductsList list={data} />
     </div>
   );
 }

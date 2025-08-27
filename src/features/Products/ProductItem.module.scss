@@ -1,0 +1,30 @@
+.productItem {
+  display: flex;
+  align-items: center;
+
+  &.grid {
+    width: 100%;
+    flex-direction: column;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &.list {
+    flex-direction: row;
+
+    img {
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  img {
+    height: 12rem;
+    object-fit: cover;
+  }
+
+  h3 {
+    flex: 1;
+  }
+}
