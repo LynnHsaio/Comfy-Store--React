@@ -18,9 +18,8 @@ const defaultQuery = {
 export default function SearchOperation() {
   const { isLoading, data } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const allQuery = Object.fromEntries(searchParams.entries());
-  const initialQuery = Object.keys(allQuery).length ? allQuery : defaultQuery;
+  const urlQuery = Object.fromEntries(searchParams.entries());
+  const initialQuery = Object.keys(urlQuery).length ? urlQuery : defaultQuery;
   const [query, setQuery] = useState(initialQuery);
 
   function getOptions(type) {
