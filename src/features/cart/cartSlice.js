@@ -4,9 +4,18 @@ const initialState = {
   cart: [],
 };
 
+function getDataFromLocalStorage(name) {
+  try {
+    const storedVal = localStorage.getItem(name);
+    return storedVal ? JSON.parse(storedVal) : initialState;
+  } catch {
+    return initialState;
+  }
+}
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: getDataFromLocalStorage("cart"),
   reducers: {
     add(state, action) {
       const { id, color, amount } = action.payload;
@@ -29,6 +38,8 @@ const cartSlice = createSlice({
       } else {
         state.cart = [...state.cart, action.payload];
       }
+
+      cartSlice.caseReducers.setDataToLocalStorage(state);
     },
     update(state, action) {
       const { id, color } = action.payload;
@@ -36,9 +47,16 @@ const cartSlice = createSlice({
       state.cart = state.cart.map((item) =>
         item.id === id && item.color === color ? action.payload : item
       );
+
+      cartSlice.caseReducers.setDataToLocalStorage(state);
     },
     remove(state, action) {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+
+      cartSlice.caseReducers.setDataToLocalStorage(state);
+    },
+    setDataToLocalStorage(state) {
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });
