@@ -26,6 +26,7 @@ export default function ProductDetail() {
     dispatch(add({ ...data, ...form }));
   }
 
+  //設定form初始值
   useEffect(() => {
     if (data?.attributes?.colors?.length) {
       setForm((prev) => ({

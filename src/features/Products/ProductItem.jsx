@@ -6,7 +6,10 @@ export default function ProductItem({ item, layout = "grid" }) {
   const { image, title, price } = item.attributes;
 
   return (
-    <Link className={`${styles.productItem} ${styles[layout]}`}>
+    <Link
+      to={`/products/${item.id}`}
+      className={`${styles.productItem} ${styles[layout]}`}
+    >
       <img src={image} alt={title} />
       <h3>{title}</h3>
       <p>{formatCurrency(price)}</p>
