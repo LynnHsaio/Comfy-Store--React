@@ -1,5 +1,5 @@
 import CartList from "../features/cart/CartList";
-import CartTotal from "../ui/CartTotal";
+import CartTotal from "../features/cart/CartTotal";
 
 export default function Cart() {
   return (

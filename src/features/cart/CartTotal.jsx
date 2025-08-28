@@ -1,13 +1,10 @@
 import { useSelector } from "react-redux";
-import { formatCurrency } from "../utils/helpers";
+import { formatCurrency } from "../../utils/helpers";
 
 export default function CartTotal() {
   const cart = useSelector((store) => store.cart.cart);
 
-  const subtotal = cart.reduce(
-    (acc, cur) => acc + cur.attributes.price * cur.amount,
-    0
-  );
+  const subtotal = cart.reduce((acc, cur) => acc + cur.price * cur.amount, 0);
   const shipping = 500;
   const tax = Math.round(subtotal * 0.1);
   const total = subtotal + shipping + tax;

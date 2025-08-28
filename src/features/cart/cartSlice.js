@@ -18,40 +18,29 @@ const cartSlice = createSlice({
   initialState: getDataFromLocalStorage("cart"),
   reducers: {
     add(state, action) {
-      const { id, color, amount } = action.payload;
+      const { cartId, amount } = action.payload;
+      const sameItem = state.cart.find((item) => item.cartId === cartId);
 
-      const isSameColorItem = state.cart.find(
-        (item) => item.id === id && item.color === color
-      );
-
-      if (isSameColorItem) {
-        state.cart = state.cart.map((item) => {
-          if (item.id === id && item.color === color) {
-            return {
-              ...action.payload,
-              amount: Number(item.amount) + Number(amount),
-            };
-          } else {
-            return item;
-          }
-        });
+      if (sameItem) {
+        sameItem.amount += amount;
       } else {
-        state.cart = [...state.cart, action.payload];
+        state.cart.push(action.payload);
       }
 
       cartSlice.caseReducers.setDataToLocalStorage(state);
     },
     update(state, action) {
-      const { id, color } = action.payload;
+      const { cartId, amount } = action.payload;
 
-      state.cart = state.cart.map((item) =>
-        item.id === id && item.color === color ? action.payload : item
-      );
+      const sameItem = state.cart.find((item) => item.cartId === cartId);
+      sameItem.amount = amount;
 
       cartSlice.caseReducers.setDataToLocalStorage(state);
     },
     remove(state, action) {
-      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+      state.cart = state.cart.filter(
+        (item) => item.cartId !== action.payload.cartId
+      );
 
       cartSlice.caseReducers.setDataToLocalStorage(state);
     },

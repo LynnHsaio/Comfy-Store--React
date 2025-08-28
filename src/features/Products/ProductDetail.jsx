@@ -18,12 +18,23 @@ export default function ProductDetail() {
   function handleChange(e) {
     const { name, value } = e.target;
 
-    setForm((curState) => ({ ...curState, [name]: value }));
+    setForm((curState) => ({ ...curState, [name]: Number(value) || value }));
   }
 
   function handleAdd(e) {
     e.preventDefault();
-    dispatch(add({ ...data, ...form }));
+
+    const cartItem = {
+      cartId: `${data.id}-${form.color}`,
+      productId: data.id,
+      image,
+      title,
+      company,
+      price,
+      ...form,
+    };
+
+    dispatch(add(cartItem));
   }
 
   //設定form初始值

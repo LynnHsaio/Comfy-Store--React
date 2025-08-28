@@ -5,21 +5,16 @@ import { remove, update } from "./cartSlice";
 import { amountOptions } from "../../utils/constant";
 
 export default function CartItem({ item }) {
-  const {
-    id,
-    attributes: { image, title, company, price },
-    color,
-    amount,
-  } = item;
+  const { cartId, image, title, company, price, color, amount } = item;
 
   const dispatch = useDispatch();
 
   function handleChange(e) {
-    dispatch(update({ ...item, amount: e.target.value }));
+    dispatch(update({ ...item, amount: Number(e.target.value) }));
   }
 
   function handleRemove() {
-    dispatch(remove({ id }));
+    dispatch(remove({ cartId }));
   }
 
   return (
