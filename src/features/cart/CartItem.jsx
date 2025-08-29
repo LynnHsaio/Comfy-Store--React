@@ -1,16 +1,15 @@
-import { useState } from "react";
 import Select from "../../ui/Select";
 import { useDispatch } from "react-redux";
 import { remove, update } from "./cartSlice";
 import { amountOptions } from "../../utils/constant";
+import { formatPrice } from "../../../../final/src/utils";
 
 export default function CartItem({ item }) {
   const { cartId, image, title, company, price, color, amount } = item;
-
   const dispatch = useDispatch();
 
   function handleChange(e) {
-    dispatch(update({ ...item, amount: Number(e.target.value) }));
+    dispatch(update({ cartId, amount: Number(e.target.value) }));
   }
 
   function handleRemove() {
@@ -18,33 +17,40 @@ export default function CartItem({ item }) {
   }
 
   return (
-    <div>
-      <img src={image} alt={title} style={{ height: "10rem" }} />
-      <h3>{title}</h3>
-      <p>{company}</p>
+    <article>
+      <div>
+        <img src={image} alt={title} style={{ height: "10rem" }} />
+      </div>
 
-      <Select
-        name="amount"
-        label="Amount"
-        options={amountOptions}
-        value={amount}
-        onChange={handleChange}
-      />
+      <div>
+        <h3>{title}</h3>
+        <h4>{company}</h4>
+        <p>
+          Color:
+          <span
+            style={{
+              display: "inline-block",
+              padding: "1rem",
+              backgroundColor: color,
+            }}
+          ></span>
+        </p>
+      </div>
 
-      <p>{price}</p>
+      <form>
+        <Select
+          name="amount"
+          label="Amount"
+          options={amountOptions}
+          value={amount}
+          onChange={handleChange}
+        />
+        <button onClick={handleRemove}>remove</button>
+      </form>
 
-      <p>
-        Color:
-        <span
-          style={{
-            display: "inline-block",
-            padding: "1rem",
-            backgroundColor: color,
-          }}
-        ></span>
-      </p>
-
-      <button onClick={handleRemove}>remove</button>
-    </div>
+      <div>
+        <p>{formatPrice(price)}</p>
+      </div>
+    </article>
   );
 }

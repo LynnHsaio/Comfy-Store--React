@@ -61,9 +61,9 @@ export default function ProductDetail() {
 
   return (
     <article>
-      <figure>
+      <div>
         <img src={image} alt={title} style={{ height: "15rem" }} />
-      </figure>
+      </div>
 
       <section>
         <header>

@@ -1,10 +1,11 @@
 import CartList from "../features/cart/CartList";
 import CartTotal from "../features/cart/CartTotal";
+import SectionTitle from "../ui/SectionTitle";
 
 export default function Cart() {
   return (
     <div>
-      <h2>Cart</h2>
+      <SectionTitle title="Shopping Cart" />
 
       <CartList />
       <CartTotal />

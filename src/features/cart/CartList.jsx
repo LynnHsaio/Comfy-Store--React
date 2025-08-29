@@ -9,7 +9,7 @@ export default function CartList() {
   return (
     <div>
       {cart.map((item) => (
-        <CartItem key={`${item.id}-${item.color}`} item={item} />
+        <CartItem key={item.cartId} item={item} />
       ))}
     </div>
   );
