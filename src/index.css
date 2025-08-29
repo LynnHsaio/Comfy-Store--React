@@ -71,3 +71,7 @@ button:focus-visible {
 ul {
   list-style: none;
 }
+
+fieldset {
+  border: none;
+}

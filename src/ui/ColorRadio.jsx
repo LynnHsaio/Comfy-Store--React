@@ -11,8 +11,9 @@ export default function ColorRadio({
   const { currentVal, handleChange } = useInput(initialVal, value, onChange);
 
   return (
-    <div>
-      <p>{label}</p>
+    <fieldset>
+      <legend>{label}</legend>
+
       {options.map((color) => (
         <span key={color}>
           <input
@@ -34,6 +35,6 @@ export default function ColorRadio({
           ></label>
         </span>
       ))}
-    </div>
+    </fieldset>
   );
 }

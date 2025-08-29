@@ -60,32 +60,40 @@ export default function ProductDetail() {
   } = data.attributes || {};
 
   return (
-    <div>
-      <img src={image} alt={title} style={{ height: "15rem" }} />
-      <h2>{title}</h2>
-      <h3>{company}</h3>
-      <p>{formatCurrency(price)}</p>
-      <p>{description}</p>
+    <article>
+      <figure>
+        <img src={image} alt={title} style={{ height: "15rem" }} />
+      </figure>
 
-      <form>
-        <ColorRadio
-          name="color"
-          label="Colors"
-          options={colors}
-          value={form.color}
-          onChange={handleChange}
-        />
+      <section>
+        <header>
+          <h2>{title}</h2>
+          <h3>{company}</h3>
+          <p>{formatCurrency(price)}</p>
+        </header>
 
-        <Select
-          name="amount"
-          label="Amount"
-          options={amountOptions}
-          value={form.amount}
-          onChange={handleChange}
-        />
+        <p>{description}</p>
 
-        <button onClick={handleAdd}>Add To Bag</button>
-      </form>
-    </div>
+        <form>
+          <ColorRadio
+            name="color"
+            label="Colors"
+            options={colors}
+            value={form.color}
+            onChange={handleChange}
+          />
+
+          <Select
+            name="amount"
+            label="Amount"
+            options={amountOptions}
+            value={form.amount}
+            onChange={handleChange}
+          />
+
+          <button onClick={handleAdd}>Add To Bag</button>
+        </form>
+      </section>
+    </article>
   );
 }
