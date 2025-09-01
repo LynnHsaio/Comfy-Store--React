@@ -1,0 +1,16 @@
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(10rem, 1fr));
+  gap: 8rem;
+
+  .columnLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 2.4rem 0;
+  }
+
+  .columnRight {
+  }
+}
