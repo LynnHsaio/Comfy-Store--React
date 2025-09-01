@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import styles from "./navlinks.module.scss";
 
 const links = [
   { path: "/", label: "Home" },
@@ -11,10 +12,17 @@ const links = [
 
 export default function NavLinks() {
   return (
-    <ul>
+    <ul className={styles.navLinks}>
       {links.map((link) => (
         <li key={link.label}>
-          <NavLink to={link.path}>{link.label}</NavLink>
+          <NavLink
+            to={link.path}
+            className={({ isActive }) =>
+              `${styles.btn} ${isActive ? styles.active : ""}`
+            }
+          >
+            {link.label}
+          </NavLink>
         </li>
       ))}
     </ul>

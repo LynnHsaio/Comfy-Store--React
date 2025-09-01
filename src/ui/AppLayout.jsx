@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import styles from "./AppLayout.module.scss";
 
 export default function AppLayout() {
   return (
-    <div>
+    <div className={styles.appLayout}>
       <Navbar />
 
       <main>
-        <Outlet />
+        <div className="align-element">
+          <Outlet />
+        </div>
       </main>
     </div>
   );

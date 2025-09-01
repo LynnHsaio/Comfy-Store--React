@@ -1,0 +1,11 @@
+.appLayout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+
+  main {
+    background-color: var(--b1);
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}

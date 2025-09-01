@@ -1,0 +1,17 @@
+.cartIcon {
+  position: relative;
+
+  .cartAmount {
+    display: inline-block;
+    padding: 0 5px;
+    background-color: var(--p);
+    color: var(--pc);
+    font-size: small;
+    border-radius: var(--rounded-btn);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+}
