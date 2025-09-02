@@ -1,0 +1,16 @@
+.cartTotal {
+  padding: 3.2rem;
+  background-color: var(--b2);
+  border-radius: var(--rounded-btn);
+
+  p {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
+
+    &:last-child {
+      margin-top: 1.6rem;
+    }
+  }
+}

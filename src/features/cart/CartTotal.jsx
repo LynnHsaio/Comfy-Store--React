@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
+import styles from "./CartTotal.module.scss";
 
 export default function CartTotal() {
   const cart = useSelector((store) => store.cart.cart);
@@ -10,18 +11,23 @@ export default function CartTotal() {
   const total = subtotal + shipping + tax;
 
   return (
-    <div>
-      <p>
-        Subtotal <span>{formatCurrency(subtotal)}</span>
+    <div className={styles.cartTotal}>
+      <p className="border-base-300 text-xs ">
+        <span>Subtotal</span>{" "}
+        <span className="font-medium">{formatCurrency(subtotal)}</span>
       </p>
-      <p>
-        Shipping <span>{formatCurrency(shipping)}</span>
+      <p className="border-base-300 text-xs ">
+        <span>Shipping</span>
+        <span className="font-medium">{formatCurrency(shipping)}</span>
       </p>
-      <p>
-        Tax <span>{formatCurrency(tax)}</span>
+      <p className="border-base-300 text-xs ">
+        <span>Tax</span>
+
+        <span className="font-medium">{formatCurrency(tax)}</span>
       </p>
-      <p>
-        Order Total <span>{formatCurrency(total)}</span>
+      <p className="text-sm">
+        <span>Order Total</span>
+        <span className="font-medium">{formatCurrency(total)}</span>
       </p>
     </div>
   );

@@ -1,4 +1,5 @@
 import useInput from "../hooks/useInput";
+import styles from "./Select.module.scss";
 
 export default function Select({
   name,
@@ -7,11 +8,12 @@ export default function Select({
   initialVal,
   value,
   onChange,
+  style = "row",
 }) {
   const { currentVal, handleChange } = useInput(initialVal, value, onChange);
 
   return (
-    <div>
+    <div className={styles.select} style={{ flexDirection: style }}>
       <label htmlFor={name}>{label}</label>
 
       <select name={name} id={name} value={currentVal} onChange={handleChange}>

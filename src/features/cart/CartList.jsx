@@ -7,10 +7,10 @@ export default function CartList() {
   if (!cart.length) return <h2>empty</h2>;
 
   return (
-    <div>
+    <ul>
       {cart.map((item) => (
         <CartItem key={item.cartId} item={item} />
       ))}
-    </div>
+    </ul>
   );
 }

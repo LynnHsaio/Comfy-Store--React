@@ -43,7 +43,10 @@
   }
 
   /* 按鈕圓弧 */
-  --rounded-btn: 0.5rem;
+  --rounded-btn: 0.8rem;
+
+  /* border顏色 */
+  --b3: #e2e8f4;
 
   /* disabled顏色 */
   --color-grey-200: #374151;
@@ -81,6 +84,12 @@ textarea,
 select {
   font: inherit;
   color: inherit;
+}
+
+input,
+select {
+  border-radius: var(--rounded-btn);
+  border-color: gray;
 }
 
 button {
@@ -126,7 +135,7 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
-  hyphens: auto;
+  /* hyphens: auto; */
 }
 
 img {
@@ -167,8 +176,43 @@ fieldset {
   }
 }
 
-.text-4xl {
-  font-size: 3.6rem;
-  line-height: 4rem;
+.btn-text {
+  margin-top: 1.2rem;
+  border: none;
+  background: none;
+  color: var(--p);
+
+  &:hover {
+    font-weight: 500;
+  }
+}
+
+.text-6xl {
+  font-size: 6rem;
+  line-height: 1;
   font-weight: 700;
+}
+
+.text-3xl {
+  font-size: 3rem;
+  line-height: 3.6rem;
+  font-weight: 500;
+}
+
+.text-sm {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.text-xs {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.border-base-300 {
+  border-bottom: solid var(--b3) 1px;
 }

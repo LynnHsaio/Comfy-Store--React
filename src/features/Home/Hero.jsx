@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <div className={styles.hero}>
       <div className={styles.columnLeft}>
-        <h1 className="text-4xl">We are changing the way people shop</h1>
+        <h1 className="text-6xl">We are changing the way people shop</h1>
 
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore

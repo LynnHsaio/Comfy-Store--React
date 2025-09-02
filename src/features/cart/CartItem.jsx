@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { remove, update } from "./cartSlice";
 import { amountOptions } from "../../utils/constant";
 import { formatPrice } from "../../../../final/src/utils";
+import styles from "./CartItem.module.scss";
 
 export default function CartItem({ item }) {
   const { cartId, image, title, company, price, color, amount } = item;
@@ -17,38 +18,40 @@ export default function CartItem({ item }) {
   }
 
   return (
-    <article>
-      <div>
-        <img src={image} alt={title} style={{ height: "10rem" }} />
+    <article className={`${styles.cartItem} border-base-300`}>
+      <div className={styles.image}>
+        <img src={image} alt={title} />
       </div>
 
-      <div>
+      <div className={`${styles.info}  text-sm`}>
         <h3>{title}</h3>
         <h4>{company}</h4>
-        <p>
-          Color:
+        <p className={styles.color}>
+          Color :
           <span
             style={{
-              display: "inline-block",
-              padding: "1rem",
               backgroundColor: color,
             }}
           ></span>
         </p>
       </div>
 
-      <form>
+      <form className={`${styles.amount} text-sm`}>
         <Select
           name="amount"
           label="Amount"
           options={amountOptions}
           value={amount}
           onChange={handleChange}
+          style="column"
         />
-        <button onClick={handleRemove}>remove</button>
+
+        <button className="btn-text" onClick={handleRemove}>
+          remove
+        </button>
       </form>
 
-      <div>
+      <div className={`${styles.price} font-medium`}>
         <p>{formatPrice(price)}</p>
       </div>
     </article>
