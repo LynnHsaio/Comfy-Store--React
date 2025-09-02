@@ -8,9 +8,9 @@ export default function FeaturedProducts() {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <div>
+    <section>
       <SectionTitle title="Featured Products" />
       <ProductsList list={data} />
-    </div>
+    </section>
   );
 }

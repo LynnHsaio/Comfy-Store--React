@@ -10,6 +10,9 @@
     /* 背景色 深 */
     --b2: #f0f6ff;
 
+    /* border顏色 */
+    --b3: #e2e8f4;
+
     /* btn-primary色 */
     --p: #057aff;
     --pc: #dbe1ff;
@@ -25,6 +28,8 @@
     --bc: #f8f8f2;
 
     --b2: #181920;
+
+    --b3: #09090c;
 
     --p: #ff7ac6;
     --pc: #301c27;
@@ -44,9 +49,6 @@
 
   /* 按鈕圓弧 */
   --rounded-btn: 0.8rem;
-
-  /* border顏色 */
-  --b3: #e2e8f4;
 
   /* disabled顏色 */
   --color-grey-200: #374151;
@@ -84,12 +86,8 @@ textarea,
 select {
   font: inherit;
   color: inherit;
-}
-
-input,
-select {
+  background-color: inherit;
   border-radius: var(--rounded-btn);
-  border-color: gray;
 }
 
 button {

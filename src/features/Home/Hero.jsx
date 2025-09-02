@@ -4,7 +4,7 @@ import styles from "./Hero.module.scss";
 
 export default function Hero() {
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <div className={styles.columnLeft}>
         <h1 className="text-6xl">We are changing the way people shop</h1>
 
@@ -24,6 +24,6 @@ export default function Hero() {
       <div className={styles.columnRight}>
         <Gallery />
       </div>
-    </div>
+    </section>
   );
 }
