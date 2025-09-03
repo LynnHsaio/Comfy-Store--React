@@ -4,6 +4,7 @@ import useProducts from "./useProducts";
 import { useSearchParams } from "react-router-dom";
 import Search from "../../ui/Search";
 import Range from "../../ui/Range";
+import Loading from "../../ui/Loading";
 // import CheckBox from "../../ui/CheckBox";
 
 const defaultQuery = {
@@ -44,7 +45,7 @@ export default function SearchOperation() {
     setQuery(defaultQuery);
   }
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
 
   return (
     <form>

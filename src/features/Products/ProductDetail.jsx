@@ -6,6 +6,7 @@ import { add } from "../cart/cartSlice";
 import { amountOptions } from "../../utils/constant";
 import { formatCurrency } from "../../utils/helpers";
 import useProduct from "./useProduct";
+import Loading from "../../ui/Loading";
 
 export default function ProductDetail() {
   const { isLoading, data } = useProduct();
@@ -48,7 +49,7 @@ export default function ProductDetail() {
     }
   }, [data]);
 
-  if (isLoading) return <div>Loading</div>;
+  if (isLoading) return <Loading />;
 
   const {
     image,

@@ -8,7 +8,7 @@ export default function AppLayout() {
       <Navbar />
 
       <main>
-        <div className="align-element">
+        <div className={`${styles.container} align-element`}>
           <Outlet />
         </div>
       </main>

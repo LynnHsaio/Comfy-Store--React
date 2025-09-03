@@ -3,12 +3,13 @@ import ProductsList from "./ProductsList";
 import Pagination from "../../ui/Pagination";
 import { useState } from "react";
 import { BsFillGridFill, BsList } from "react-icons/bs";
+import Loading from "../../ui/Loading";
 
 export default function ProductsTable() {
   const { isLoading, data } = useFilteredProducts();
   const [layout, setLayout] = useState("grid");
 
-  if (isLoading) return <div>Loading</div>;
+  if (isLoading) return <Loading />;
 
   const { total } = data.meta.pagination;
 
