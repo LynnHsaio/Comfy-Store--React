@@ -92,6 +92,7 @@ select {
 
 button {
   cursor: pointer;
+  border: none;
 }
 
 *:disabled {
@@ -156,6 +157,7 @@ fieldset {
 }
 
 .btn-primary {
+  &,
   &:link,
   &:visited,
   &:active,
@@ -185,6 +187,12 @@ fieldset {
   }
 }
 
+.text-9xl {
+  font-size: 12.8rem;
+  line-height: 1;
+  font-weight: 600;
+}
+
 .text-6xl {
   font-size: 6rem;
   line-height: 1;
@@ -197,6 +205,11 @@ fieldset {
   font-weight: 500;
 }
 
+.text-lg {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
 .text-sm {
   font-size: 1.4rem;
   line-height: 2rem;
@@ -207,10 +220,22 @@ fieldset {
   line-height: 1.6rem;
 }
 
+.text-primary {
+  color: var(--p);
+}
+
 .font-medium {
   font-weight: 500;
 }
 
 .border-base-300 {
   border-bottom: solid var(--b3) 1px;
+}
+
+.mb-6 {
+  margin-bottom: 2.4rem;
+}
+
+.mb-10 {
+  margin-bottom: 4rem;
 }

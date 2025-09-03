@@ -31,8 +31,8 @@ function App() {
             <Route path="products/:id" element={<Product />} />
             <Route path="cart" element={<Cart />} />
             <Route path="checkout" element={<CheckOut />} />
-            <Route path="*" element={<PageNotFound />} />
           </Route>
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

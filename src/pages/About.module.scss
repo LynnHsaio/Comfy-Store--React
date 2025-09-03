@@ -1,19 +1,21 @@
-h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 2.4rem;
+.about {
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.4rem;
 
-  .textPrimary {
-    background-color: var(--p);
-    color: var(--pc);
-    border-radius: var(--rounded-btn);
-    padding: 0.8rem 1.6rem;
+    .textPrimary {
+      background-color: var(--p);
+      color: var(--pc);
+      border-radius: var(--rounded-btn);
+      padding: 0.8rem 1.6rem;
+    }
   }
-}
 
-p {
-  max-width: 64rem;
-  margin: auto;
+  p {
+    max-width: 64rem;
+    margin: auto;
+  }
 }

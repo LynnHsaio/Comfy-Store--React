@@ -2,7 +2,7 @@ import styles from "./About.module.scss";
 
 export default function About() {
   return (
-    <>
+    <section className={styles.about}>
       <h1>
         <span className="text-6xl">We love </span>
         <span className={styles.textPrimary}>comfy</span>
@@ -13,6 +13,6 @@ export default function About() {
         aut! Perferendis ipsa cumque ipsam nostrum reprehenderit ad illo sed
         officiis ea tempore! Similique eos minima sit porro, ratione aspernatur!
       </p>
-    </>
+    </section>
   );
 }
