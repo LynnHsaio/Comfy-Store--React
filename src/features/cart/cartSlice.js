@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   cart: [],
@@ -28,6 +29,7 @@ const cartSlice = createSlice({
       }
 
       cartSlice.caseReducers.setDataToLocalStorage(state);
+      toast.success("Item added to cart");
     },
     update(state, action) {
       const { cartId, amount } = action.payload;
@@ -36,6 +38,7 @@ const cartSlice = createSlice({
       sameItem.amount = amount;
 
       cartSlice.caseReducers.setDataToLocalStorage(state);
+      toast.success("Cart updated");
     },
     remove(state, action) {
       state.cart = state.cart.filter(
@@ -43,6 +46,7 @@ const cartSlice = createSlice({
       );
 
       cartSlice.caseReducers.setDataToLocalStorage(state);
+      toast.error("Item removed from cart");
     },
     setDataToLocalStorage(state) {
       localStorage.setItem("cart", JSON.stringify(state));
