@@ -1,7 +1,7 @@
 :root {
   /* tailwind */
   &,
-  &.winter {
+  &[data-theme="winter"] {
     /* 基本背景色 淺 tailwind寫在root*/
     --b1: white;
     /* 基本文字顏色 */
@@ -23,7 +23,7 @@
     --nc: #c7c9d1;
   }
 
-  &.dracula {
+  &[data-theme="dracula"] {
     --b1: #272935;
     --bc: #f8f8f2;
 

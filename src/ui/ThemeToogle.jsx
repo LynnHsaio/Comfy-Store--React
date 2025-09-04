@@ -14,12 +14,9 @@ export default function ThemeToogle() {
 
   useEffect(
     function () {
-      const addThemeClass = isDarkMode ? "dracula" : "winter";
-      const removeThemeClass = !isDarkMode ? "dracula" : "winter";
-      const htmlElement = document.querySelector("html");
+      const theme = isDarkMode ? "dracula" : "winter";
 
-      htmlElement.classList.add(addThemeClass);
-      htmlElement.classList.remove(removeThemeClass);
+      document.documentElement.setAttribute("data-theme", theme);
     },
     [isDarkMode]
   );
