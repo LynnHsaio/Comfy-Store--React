@@ -5,13 +5,13 @@ import styles from "./Cart.module.scss";
 
 export default function Cart() {
   return (
-    <>
+    <section>
       <SectionTitle title="Shopping Cart" />
 
       <div className={styles.container}>
         <CartList />
         <CartTotal />
       </div>
-    </>
+    </section>
   );
 }

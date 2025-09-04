@@ -7,6 +7,7 @@ import { amountOptions } from "../../utils/constant";
 import { formatCurrency } from "../../utils/helpers";
 import useProduct from "./useProduct";
 import Loading from "../../ui/Loading";
+import Empty from "../../ui/Empty";
 
 export default function ProductDetail() {
   const { isLoading, data } = useProduct();
@@ -50,6 +51,8 @@ export default function ProductDetail() {
   }, [data]);
 
   if (isLoading) return <Loading />;
+
+  if (!data) return <Empty resourceName="product" />;
 
   const {
     image,

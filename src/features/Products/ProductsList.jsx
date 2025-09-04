@@ -1,8 +1,9 @@
+import Empty from "../../ui/Empty";
 import ProductItem from "./ProductItem";
 import styles from "./ProductsList.module.scss";
 
 export default function ProductsList({ list, layout = "grid" }) {
-  if (!list || !list.length) return <h5>Sorry, there are no products</h5>;
+  if (!list?.length) return <Empty resourceName="products" />;
 
   return (
     <ul className={`${styles.ProductsList} ${styles[layout]}`}>

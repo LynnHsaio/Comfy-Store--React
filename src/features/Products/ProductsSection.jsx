@@ -4,6 +4,7 @@ import Pagination from "../../ui/Pagination";
 import { useState } from "react";
 import { BsFillGridFill, BsList } from "react-icons/bs";
 import Loading from "../../ui/Loading";
+import Empty from "../../ui/Empty";
 
 export default function ProductsTable() {
   const { isLoading, data } = useFilteredProducts();
@@ -11,7 +12,9 @@ export default function ProductsTable() {
 
   if (isLoading) return <Loading />;
 
-  const { total } = data.meta.pagination;
+  if (!data?.length) return <Empty resourceName="products" />;
+
+  const { total } = data?.meta.pagination || 0;
 
   return (
     <section>
@@ -26,9 +29,9 @@ export default function ProductsTable() {
         </button>
       </span>
 
-      <ProductsList list={data.data} layout={layout} />
+      <ProductsList list={data?.data} layout={layout} />
 
-      <Pagination pagination={data.meta.pagination} />
+      <Pagination pagination={data?.meta.pagination} />
     </section>
   );
 }

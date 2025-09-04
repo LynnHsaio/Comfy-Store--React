@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import Search from "../../ui/Search";
 import Range from "../../ui/Range";
 import Loading from "../../ui/Loading";
+import Empty from "../../ui/Empty";
 // import CheckBox from "../../ui/CheckBox";
 
 const defaultQuery = {
@@ -46,6 +47,8 @@ export default function SearchOperation() {
   }
 
   if (isLoading) return <Loading />;
+
+  if (!data?.length) return <Empty resourceName="options" />;
 
   return (
     <form>
