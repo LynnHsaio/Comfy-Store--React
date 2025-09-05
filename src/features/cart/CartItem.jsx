@@ -43,7 +43,6 @@ export default function CartItem({ item }) {
           options={amountOptions}
           value={amount}
           onChange={handleChange}
-          style="column"
         />
 
         <button className="btn-text" onClick={handleRemove}>

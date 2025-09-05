@@ -8,12 +8,12 @@ export default function Select({
   initialVal,
   value,
   onChange,
-  style = "row",
+  layout = "column",
 }) {
   const { currentVal, handleChange } = useInput(initialVal, value, onChange);
 
   return (
-    <div className={styles.select} style={{ flexDirection: style }}>
+    <div className={`${styles.select} ${styles[layout]}`}>
       <label htmlFor={name}>{label}</label>
 
       <select name={name} id={name} value={currentVal} onChange={handleChange}>

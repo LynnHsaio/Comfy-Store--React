@@ -10,9 +10,13 @@ export default function ProductItem({ item, layout = "grid" }) {
       to={`/products/${item.id}`}
       className={`${styles.productItem} ${styles[layout]}`}
     >
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{formatCurrency(price)}</p>
+      <figure>
+        <img src={image} alt={title} />
+      </figure>
+      <div className={styles.textContainer}>
+        <h3>{title}</h3>
+        <p className="text-primary">{formatCurrency(price)}</p>
+      </div>
     </Link>
   );
 }

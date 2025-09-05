@@ -1,4 +1,7 @@
 import useInput from "../hooks/useInput";
+import { formatCurrency } from "../utils/helpers";
+
+import styles from "./Range.module.scss";
 
 export default function Range({
   name,
@@ -12,9 +15,11 @@ export default function Range({
   const { currentVal, handleChange } = useInput(initialVal, value, onChange);
 
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <span>${currentVal}</span>
+    <div className={styles.range}>
+      <label htmlFor={name}>
+        <span>{label}</span>
+        <span>{formatCurrency(currentVal)}</span>
+      </label>
       <input
         type="range"
         id={name}
@@ -25,8 +30,10 @@ export default function Range({
         value={currentVal}
         onChange={handleChange}
       />
-      <span>{min}</span>
-      <span>Max: ${max}</span>
+      <p className="text-sm font-medium ">
+        <span>{formatCurrency(min)}</span>
+        <span>Max: {formatCurrency(max)}</span>
+      </p>
     </div>
   );
 }

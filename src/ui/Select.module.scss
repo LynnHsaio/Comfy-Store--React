@@ -1,5 +1,12 @@
 .select {
   display: flex;
-  flex-direction: column;
   gap: 0.4rem;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.column {
+    flex-direction: column;
+  }
 }

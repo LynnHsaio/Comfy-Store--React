@@ -18,6 +18,11 @@
     --pc: #dbe1ff;
     --pf: #0069e0;
 
+    /* btn-accent */
+    --a: #c149ad;
+    --ac: #f5dbee;
+    --af: #ab3b98;
+
     /* navbar按鈕顏色 */
     --n: #021431;
     --nc: #c7c9d1;
@@ -34,6 +39,10 @@
     --p: #ff7ac6;
     --pc: #301c27;
     --pf: #ff57b6;
+
+    --a: #ffb86b;
+    --ac: #32261b;
+    --af: #ffa647;
 
     --n: #414558;
     --nc: #d6d7db;
@@ -86,8 +95,9 @@ textarea,
 select {
   font: inherit;
   color: inherit;
-  background-color: inherit;
+  background-color: var(--b1);
   border-radius: var(--rounded-btn);
+  border: solid 1px var(--nc);
 }
 
 button {
@@ -176,6 +186,39 @@ fieldset {
   }
 }
 
+.btn-accent {
+  &,
+  &:link,
+  &:visited,
+  &:active,
+  &.active:link,
+  &.active:visited {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--rounded-btn);
+    background-color: var(--a);
+    color: var(--ac);
+    font-weight: 600;
+  }
+
+  &:hover {
+    background-color: var(--af);
+  }
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--rounded-btn);
+  background-color: transparent;
+  color: inherit;
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--b2);
+  }
+}
+
 .btn-text {
   margin-top: 1.2rem;
   border: none;
@@ -224,6 +267,7 @@ fieldset {
 .text-lg {
   font-size: 1.8rem;
   line-height: 2.8rem;
+  font-weight: 500;
 }
 
 .text-sm {

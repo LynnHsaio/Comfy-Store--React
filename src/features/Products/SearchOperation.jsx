@@ -7,6 +7,7 @@ import Range from "../../ui/Range";
 import Loading from "../../ui/Loading";
 import Empty from "../../ui/Empty";
 // import CheckBox from "../../ui/CheckBox";
+import styles from "./SearchOperation.module.scss";
 
 const defaultQuery = {
   search: "",
@@ -51,7 +52,7 @@ export default function SearchOperation() {
   if (!data?.length) return <Empty resourceName="options" />;
 
   return (
-    <form>
+    <form className={styles.searchOperation}>
       <Search
         name="search"
         label="Search Product"
@@ -97,9 +98,14 @@ export default function SearchOperation() {
         value={Boolean(query.shipping)}
         onChange={onChange}
       /> */}
+      <div></div>
 
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={handleReset}>Reset</button>
+      <button className="btn-primary" onClick={handleSearch}>
+        Search
+      </button>
+      <button className="btn-accent" onClick={handleReset}>
+        Reset
+      </button>
     </form>
   );
 }

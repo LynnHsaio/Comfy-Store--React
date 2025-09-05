@@ -1,0 +1,12 @@
+.range {
+  label,
+  input {
+    width: 100%;
+  }
+
+  label,
+  p {
+    display: flex;
+    justify-content: space-between;
+  }
+}
