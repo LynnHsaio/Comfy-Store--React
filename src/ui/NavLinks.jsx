@@ -15,12 +15,7 @@ export default function NavLinks() {
     <ul className={styles.navLinks}>
       {links.map((link) => (
         <li key={link.label}>
-          <NavLink
-            to={link.path}
-            className={({ isActive }) =>
-              `${styles.btn} ${isActive ? styles.active : ""}`
-            }
-          >
+          <NavLink to={link.path} className="btn">
             {link.label}
           </NavLink>
         </li>

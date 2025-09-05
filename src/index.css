@@ -95,7 +95,6 @@ textarea,
 select {
   font: inherit;
   color: inherit;
-  background-color: var(--b1);
   border-radius: var(--rounded-btn);
   border: solid 1px var(--nc);
 }
@@ -164,6 +163,24 @@ fieldset {
   max-width: 115rem;
   padding-left: 3.2rem;
   padding-right: 3.2rem;
+}
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    background-color: transparent;
+    border-radius: var(--rounded-btn);
+  }
+
+  &:hover,
+  &:active,
+  &.active {
+    background-color: var(--n);
+    color: var(--nc);
+  }
 }
 
 .btn-primary {

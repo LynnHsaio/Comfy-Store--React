@@ -4,20 +4,3 @@
   align-items: center;
   gap: 1.2rem;
 }
-
-.btn {
-  &:link,
-  &:visited {
-    display: inline-block;
-    padding: 0.8rem 1.6rem;
-    border-radius: var(--rounded-btn);
-  }
-
-  &:hover,
-  &:active,
-  &.active:link,
-  &.active:visited {
-    background-color: var(--n);
-    color: var(--nc);
-  }
-}

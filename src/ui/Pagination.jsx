@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router-dom";
+import styles from "./Pagination.module.scss";
 
 export default function Pagination({ pagination }) {
   const { pageCount, page } = pagination;
@@ -15,36 +16,40 @@ export default function Pagination({ pagination }) {
   if (pageCount === 1) return null;
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          handlePage(page - 1);
-        }}
-      >
-        prev
-      </button>
+    <div className={styles.paginationContainer}>
+      <div className={styles.pagination}>
+        <button
+          className="btn"
+          onClick={() => {
+            handlePage(page - 1);
+          }}
+        >
+          prev
+        </button>
 
-      <span>
-        {pages.map((pageNum) => (
-          <button
-            key={pageNum}
-            onClick={() => {
-              handlePage(pageNum);
-            }}
-            style={{ backgroundColor: pageNum === page ? "balck" : "initial" }}
-          >
-            {pageNum}
-          </button>
-        ))}
-      </span>
+        <span>
+          {pages.map((pageNum) => (
+            <button
+              key={pageNum}
+              className={`btn ${pageNum === page ? "active" : ""} `}
+              onClick={() => {
+                handlePage(pageNum);
+              }}
+            >
+              {pageNum}
+            </button>
+          ))}
+        </span>
 
-      <button
-        onClick={() => {
-          handlePage(page + 1);
-        }}
-      >
-        next
-      </button>
+        <button
+          className="btn"
+          onClick={() => {
+            handlePage(page + 1);
+          }}
+        >
+          next
+        </button>
+      </div>
     </div>
   );
 }
