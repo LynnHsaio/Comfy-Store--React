@@ -1,5 +1,5 @@
 .productItem {
-  display: inline-block;
+  display: flex;
   border-radius: 12px;
   transition: transform 200ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 200ms;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -11,7 +11,7 @@
 
   figure {
     height: 20rem;
-    width: 100%;
+    // width: 100%;
     padding: 1.6rem 1.6rem 0;
   }
 
@@ -35,16 +35,41 @@
     width: 100%;
     flex-direction: column;
 
+    figure {
+      padding: 1.6rem 1.6rem 0;
+    }
+
     img {
       width: 100%;
+    }
+
+    .company {
+      display: none;
     }
   }
 
   &.list {
     flex-direction: row;
 
+    figure {
+      padding: 1.6rem;
+    }
+
     img {
       aspect-ratio: 1 / 1;
+    }
+
+    .textContainer {
+      flex: 1fr;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
+    }
+
+    .company {
+      display: block;
+      color: var(--nc);
     }
   }
 }
