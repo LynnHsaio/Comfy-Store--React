@@ -1,0 +1,23 @@
+.colorRadio {
+  .colorsContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    input {
+      visibility: hidden;
+    }
+  }
+
+  .color {
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 99px;
+  }
+
+  .selected {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--p);
+  }
+}

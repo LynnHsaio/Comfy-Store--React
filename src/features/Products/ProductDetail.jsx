@@ -8,6 +8,7 @@ import { formatCurrency } from "../../utils/helpers";
 import useProduct from "./useProduct";
 import Loading from "../../ui/Loading";
 import Empty from "../../ui/Empty";
+import styles from "./ProductDetail.module.scss";
 
 export default function ProductDetail() {
   const { isLoading, data } = useProduct();
@@ -64,38 +65,44 @@ export default function ProductDetail() {
   } = data.attributes || {};
 
   return (
-    <article>
-      <div>
-        <img src={image} alt={title} style={{ height: "15rem" }} />
+    <article className={styles.productDetail}>
+      <div className={`${styles.imgContainer} mb-10`}>
+        <img src={image} alt={title} />
       </div>
 
       <section>
-        <header>
-          <h2>{title}</h2>
-          <h3>{company}</h3>
-          <p>{formatCurrency(price)}</p>
+        <header className="mb-6">
+          <h2 className="text-3xl mb-2 ">{title}</h2>
+          <h3 className="text-neutral-content mb-2 ">{company}</h3>
+          <p className="text-lg">{formatCurrency(price)}</p>
         </header>
 
-        <p>{description}</p>
+        <p className="mb-6"> {description}</p>
 
         <form>
-          <ColorRadio
-            name="color"
-            label="Colors"
-            options={colors}
-            value={form.color}
-            onChange={handleChange}
-          />
+          <div className="mb-2">
+            <ColorRadio
+              name="color"
+              label="Colors"
+              options={colors}
+              value={form.color}
+              onChange={handleChange}
+            />
+          </div>
 
-          <Select
-            name="amount"
-            label="Amount"
-            options={amountOptions}
-            value={form.amount}
-            onChange={handleChange}
-          />
+          <div className={`${styles.selectContainer} mb-10`}>
+            <Select
+              name="amount"
+              label="Amount"
+              options={amountOptions}
+              value={form.amount}
+              onChange={handleChange}
+            />
+          </div>
 
-          <button onClick={handleAdd}>Add To Bag</button>
+          <button className="btn-primary" onClick={handleAdd}>
+            Add To Bag
+          </button>
         </form>
       </section>
     </article>

@@ -1,4 +1,5 @@
 import useInput from "../hooks/useInput";
+import styles from "./ColorRadio.module.scss";
 
 export default function ColorRadio({
   name,
@@ -11,30 +12,35 @@ export default function ColorRadio({
   const { currentVal, handleChange } = useInput(initialVal, value, onChange);
 
   return (
-    <fieldset>
-      <legend>{label}</legend>
+    <fieldset className={styles.colorRadio}>
+      <legend className="font-medium">{label}</legend>
 
-      {options.map((color) => (
-        <span key={color}>
-          <input
-            type="radio"
-            name={name}
-            id={color}
-            value={color}
-            style={{ appearance: "none" }}
-            checked={color === currentVal}
-            onChange={handleChange}
-          />
-          <label
-            htmlFor={color}
-            style={{
-              backgroundColor: color,
-              padding: "1rem",
-              border: color === currentVal ? "solid 2px red" : "none",
-            }}
-          ></label>
-        </span>
-      ))}
+      <div className={styles.colorsContainer}>
+        {options.map((color) => (
+          <span key={color}>
+            <input
+              type="radio"
+              name={name}
+              id={color}
+              value={color}
+              style={{ appearance: "none" }}
+              checked={color === currentVal}
+              onChange={handleChange}
+            />
+            <label
+              htmlFor={color}
+              className={`${styles.color} ${
+                color === currentVal ? styles.selected : ""
+              }`}
+              style={{
+                backgroundColor: color,
+              }}
+            ></label>
+          </span>
+        ))}
+      </div>
     </fieldset>
   );
 }
+
+// border: color === currentVal ? "solid 2px red" : "none",

@@ -2,9 +2,11 @@
   display: flex;
   justify-content: end;
   margin: 4.8rem 0;
+  overflow: hidden;
 }
 
 .pagination {
   display: flex;
   background-color: var(--b2);
+  border-radius: var(--rounded-btn);
 }

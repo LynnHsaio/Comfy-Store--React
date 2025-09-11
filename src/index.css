@@ -72,7 +72,7 @@
   margin: 0;
 
   /* Creating animations for dark mode */
-  transition: background-color 0.3s, border 0.3s;
+  transition: background-color 0.3s;
 }
 
 html {
@@ -301,12 +301,20 @@ fieldset {
   color: var(--p);
 }
 
+.text-neutral-content {
+  color: var(--nc);
+}
+
 .font-medium {
   font-weight: 500;
 }
 
 .border-base-300 {
   border-bottom: solid var(--b3) 1px;
+}
+
+.mb-2 {
+  margin-bottom: 0.8rem;
 }
 
 .mb-6 {

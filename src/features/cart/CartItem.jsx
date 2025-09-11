@@ -25,7 +25,7 @@ export default function CartItem({ item }) {
 
       <div className={`${styles.info}  text-sm`}>
         <h3>{title}</h3>
-        <h4>{company}</h4>
+        <h4 className="text-neutral-content">{company}</h4>
         <p className={styles.color}>
           Color :
           <span

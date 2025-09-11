@@ -14,7 +14,9 @@ export default function Select({
 
   return (
     <div className={`${styles.select} ${styles[layout]}`}>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className="font-medium">
+        {label}
+      </label>
 
       <select name={name} id={name} value={currentVal} onChange={handleChange}>
         {options.map((item) => (
