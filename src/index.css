@@ -96,7 +96,8 @@ select {
   font: inherit;
   color: inherit;
   border-radius: var(--rounded-btn);
-  border: solid 1px var(--nc);
+  border: solid 1px var(--bc);
+  background-color: var(--b1);
 }
 
 button {
