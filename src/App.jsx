@@ -28,7 +28,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loading fullscreen={true} />}>
           <Routes>
             <Route element={<AppLayout />}>
               <Route index element={<Home />} />
