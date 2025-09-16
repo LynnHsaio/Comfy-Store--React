@@ -5,7 +5,7 @@ import CheckoutForm from "../features/checkout/CheckoutForm";
 import styles from "./Checkout.module.scss";
 
 export default function CheckOut() {
-  const cartLength = useSelector((store) => store.cart.cart.length);
+  const cartLength = useSelector((store) => store.cart.cart?.length);
 
   if (!cartLength) return <SectionTitle title="Your cart is empty" />;
 

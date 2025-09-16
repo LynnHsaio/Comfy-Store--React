@@ -5,7 +5,7 @@ import styles from "./CartIcon.module.scss";
 
 export default function CartIcon() {
   const cartAmount = useSelector((store) =>
-    store.cart.cart.reduce((acc, cur) => acc + cur.amount, 0)
+    store.cart.cart?.reduce((acc, cur) => acc + cur.amount, 0)
   );
 
   return (
