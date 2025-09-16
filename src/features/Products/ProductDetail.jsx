@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Select from "../../ui/Select";
 import ColorRadio from "../../ui/ColorRadio";
@@ -9,20 +9,15 @@ import useProduct from "./useProduct";
 import Loading from "../../ui/Loading";
 import Empty from "../../ui/Empty";
 import styles from "./ProductDetail.module.scss";
+import useForm from "../../hooks/useForm";
 
 export default function ProductDetail() {
   const { isLoading, data } = useProduct();
-  const [form, setForm] = useState({
+  const { form, setForm, handleChange } = useForm({
     color: "",
     amount: "",
   });
   const dispatch = useDispatch();
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-
-    setForm((curState) => ({ ...curState, [name]: Number(value) || value }));
-  }
 
   function handleAdd(e) {
     e.preventDefault();

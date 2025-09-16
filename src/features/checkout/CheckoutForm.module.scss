@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.input {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  border: 2px solid var(--b3);
+  border-radius: var(--rounded-btn);
+  font-size: 1.4rem;
+  color: var(--bc);
+  background-color: var(--b1);
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--p);
+    box-shadow: 0 0 0 3px rgba(var(--p-rgb), 0.1);
+  }
+
+  &::placeholder {
+    color: var(--bc-content);
+  }
+}

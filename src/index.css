@@ -196,6 +196,8 @@ fieldset {
     background-color: var(--p);
     color: var(--pc);
     font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
   }
 
   &:hover {

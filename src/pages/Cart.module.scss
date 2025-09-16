@@ -3,4 +3,10 @@
   grid-template-columns: 5fr 2fr;
   align-items: start;
   gap: 4.8rem;
+
+  .rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
 }
