@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styles from "./navlinks.module.scss";
+import styles from "./NavLinks.module.scss";
 
 const links = [
   { path: "/", label: "Home" },
