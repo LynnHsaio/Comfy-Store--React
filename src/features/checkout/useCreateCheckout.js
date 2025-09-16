@@ -1,14 +1,11 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { createOrder as createOrderApi } from "../../services/apiOrders";
 import { toast } from "react-toastify";
 
 export default function useCreateCheckout() {
-  const queryClient = useQueryClient();
-
   const { mutate: createOrder, isPending: isCreatingOrder } = useMutation({
     mutationFn: createOrderApi,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["carts"] });
       toast.success("order placed successfully");
     },
     onError: (error) => {

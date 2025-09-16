@@ -48,6 +48,10 @@ const cartSlice = createSlice({
       cartSlice.caseReducers.setDataToLocalStorage(state);
       toast.error("Item removed from cart");
     },
+    clear(state) {
+      state.cart = [];
+      cartSlice.caseReducers.setDataToLocalStorage(state);
+    },
     setDataToLocalStorage(state) {
       localStorage.setItem("cart", JSON.stringify(state));
     },
@@ -55,4 +59,4 @@ const cartSlice = createSlice({
 });
 
 export default cartSlice.reducer;
-export const { add, update, remove } = cartSlice.actions;
+export const { add, update, remove, clear } = cartSlice.actions;

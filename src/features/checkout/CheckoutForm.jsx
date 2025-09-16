@@ -1,8 +1,10 @@
 import useForm from "../../hooks/useForm";
 import useCreateCheckout from "./useCreateCheckout";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
 import styles from "./CheckoutForm.module.scss";
+import { useNavigate } from "react-router-dom";
+import { clear } from "../cart/cartSlice";
 
 const initialForm = {
   name: "",
@@ -13,6 +15,8 @@ export default function CheckoutForm() {
   const { form, resetForm, handleChange } = useForm(initialForm);
   const { createOrder, isCreatingOrder } = useCreateCheckout();
   const { cart } = useSelector((store) => store.cart);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +37,8 @@ export default function CheckoutForm() {
     createOrder(orderData, {
       onSuccess: () => {
         resetForm();
+        navigate("/orders");
+        dispatch(clear());
       },
     });
   };
