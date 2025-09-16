@@ -1,0 +1,17 @@
+.productDetail {
+  .imgContainer {
+    width: 38rem;
+    height: 38rem;
+    border-radius: var(--rounded-btn);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .selectContainer {
+    width: 20rem;
+  }
+}

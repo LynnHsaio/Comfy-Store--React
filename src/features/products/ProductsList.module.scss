@@ -1,0 +1,12 @@
+.ProductsList {
+  display: grid;
+  gap: 3.2rem;
+
+  &.grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.list {
+    grid-template-columns: 1fr;
+  }
+}

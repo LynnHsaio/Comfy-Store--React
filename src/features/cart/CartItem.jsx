@@ -2,7 +2,7 @@ import Select from "../../ui/Select";
 import { useDispatch } from "react-redux";
 import { remove, update } from "./cartSlice";
 import { amountOptions } from "../../utils/constant";
-import { formatPrice } from "../../../../final/src/utils";
+import { formatCurrency } from "../../utils/helpers";
 import styles from "./CartItem.module.scss";
 
 export default function CartItem({ item }) {
@@ -51,7 +51,7 @@ export default function CartItem({ item }) {
       </form>
 
       <div className={`${styles.price} font-medium`}>
-        <p>{formatPrice(price)}</p>
+        <p>{formatCurrency(price)}</p>
       </div>
     </article>
   );
