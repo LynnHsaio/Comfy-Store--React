@@ -7,7 +7,7 @@ import Loading from "../../ui/Loading";
 import Empty from "../../ui/Empty";
 import styles from "./ProductsSection.module.scss";
 
-export default function ProductsTable() {
+export default function ProductsSection() {
   const { isLoading, data } = useFilteredProducts();
   const [layout, setLayout] = useState("grid");
 
