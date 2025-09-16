@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getFilteredProducts } from "../../services/ApiProducts";
+import { getFilteredProducts } from "../../services/apiProducts";
 import { useLocation } from "react-router-dom";
 
 export default function useFilteredProducts() {

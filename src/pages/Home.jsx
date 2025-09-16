@@ -1,5 +1,5 @@
-import FeaturedProducts from "../features/Home/FeaturedProducts";
-import Hero from "../features/Home/Hero";
+import FeaturedProducts from "../features/home/FeaturedProducts";
+import Hero from "../features/home/Hero";
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getFeaturedProducts } from "../../services/ApiProducts";
+import { getFeaturedProducts } from "../../services/apiProducts";
 
 export default function useFeaturedProducts() {
   const { isLoading, data, error } = useQuery({
