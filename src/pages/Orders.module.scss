@@ -1,0 +1,22 @@
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ordersTable th {
+  padding: 1.6rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.ordersTable td {
+  padding: 1.6rem;
+}
+
+.evenRow {
+  background-color: white;
+}
+
+.oddRow {
+  background-color: var(--b2);
+}

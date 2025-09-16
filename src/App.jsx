@@ -12,6 +12,7 @@ const Products = lazy(() => import("./pages/Products"));
 const Cart = lazy(() => import("./pages/Cart"));
 const CheckOut = lazy(() => import("./pages/CheckOut"));
 const Product = lazy(() => import("./pages/Product"));
+const Orders = lazy(() => import("./pages/Orders"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
 const queryClient = new QueryClient({
@@ -36,6 +37,7 @@ function App() {
               <Route path="products/:id" element={<Product />} />
               <Route path="cart" element={<Cart />} />
               <Route path="checkout" element={<CheckOut />} />
+              <Route path="orders" element={<Orders />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
