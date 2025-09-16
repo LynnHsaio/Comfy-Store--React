@@ -5,7 +5,9 @@ export default function useForm(initialVal) {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setForm((curState) => ({ ...curState, [name]: value }));
+    const convertedValue = Number(value) || value;
+
+    setForm((curState) => ({ ...curState, [name]: convertedValue }));
   }
 
   function resetForm() {
