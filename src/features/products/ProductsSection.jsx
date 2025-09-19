@@ -33,8 +33,11 @@ export default function ProductsSection() {
           >
             <BsFillGridFill />
           </button>
-          <button className={getBtnClassName("list")}>
-            <BsList onClick={() => setLayout("list")} />
+          <button
+            className={getBtnClassName("list")}
+            onClick={() => setLayout("list")}
+          >
+            <BsList />
           </button>
         </div>
       </div>
