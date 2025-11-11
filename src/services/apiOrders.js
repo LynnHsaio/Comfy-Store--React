@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://strapi-store-server.onrender.com/api/orders";
 const userToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzU3NzUxMDM5LCJleHAiOjE3NjAzNDMwMzl9.m2-JfgCMM78_jWYhyDRssQDRZhdsQftk_STZLHlFxZ0";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYyODQ4Nzg5LCJleHAiOjE3NjU0NDA3ODl9.AsN6TVIB_DG9C3OMxEj906lMJ1lTA_rU57KoHBUiM84";
 
 export async function getOrders(page) {
   const res = await axios.get(`${API_URL}?page=${page}`, {
